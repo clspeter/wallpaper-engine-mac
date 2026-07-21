@@ -28,6 +28,7 @@ struct WebWallpaperView: NSViewRepresentable {
 
         let nsView = WKWebView(frame: .zero, configuration: configuration)
         nsView.navigationDelegate = viewModel
+        viewModel.webView = nsView   // lets the VM apply mute state to this page
         Self.loadWallpaper(nsView, viewModel: viewModel)
         return nsView
     }

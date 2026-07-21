@@ -209,7 +209,23 @@ struct WallpaperPreview: SubviewOfContentView {
                                     .frame(width: 35)
                             }
                         case "web":
-                            EmptyView()
+                            // Web wallpapers play audio through WebKit, which only supports
+                            // binary mute — expose it as a toggle backed by the shared volume
+                            // so it stays in sync with the menu-bar Mute command.
+                            HStack {
+                                Label("Mute Audio", systemImage: "speaker.slash.fill")
+                                Spacer()
+                                Toggle("", isOn: Binding(
+                                    get: { wallpaperViewModel.playVolume == 0 },
+                                    set: { muted in
+                                        wallpaperViewModel.playVolume = muted
+                                            ? 0
+                                            : (wallpaperViewModel.lastPlayVolume == 0 ? 1 : wallpaperViewModel.lastPlayVolume)
+                                    }
+                                ))
+                                .toggleStyle(.switch)
+                                .labelsHidden()
+                            }
                         default:
                             EmptyView()
                         }
