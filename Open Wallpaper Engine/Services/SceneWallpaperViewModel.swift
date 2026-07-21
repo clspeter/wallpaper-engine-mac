@@ -434,23 +434,84 @@ class SceneWallpaperViewModel: ObservableObject {
         return nil
     }
 
-    /// Generate simple procedural textures for built-in particle names
+    /// Generate procedural sprites for Wallpaper Engine's built-in particle textures
+    /// (e.g. "particle/drop", "particle/fog/fog1"). Those live in WE's own shared
+    /// assets bundle, not in the wallpaper package, so when WE isn't installed we
+    /// approximate them here rather than dropping the emitter's texture entirely.
     private func generateProceduralTexture(named name: String) -> NSImage? {
         let size: CGFloat = 32
+        let lower = name.lowercased()
 
-        switch name {
-        case "particle/drop":
-            // Elongated raindrop: bright center, soft edges
-            return generateRadialGradient(size: CGSize(width: 4, height: 16), color: .white)
+        switch true {
+        case lower.contains("drop"):
+            // Falling rain: a thin, elongated, slightly blue-white streak.
+            return generateRaindrop(size: CGSize(width: 7, height: 40))
 
-        case _ where name.contains("halo"):
-            // Soft circular glow
-            return generateRadialGradient(size: CGSize(width: size, height: size), color: .white)
+        case lower.contains("fog"), lower.contains("smoke"), lower.contains("cloud"):
+            // Soft, irregular volumetric puff built from overlapping low-alpha blobs.
+            return generateFogPuff(size: CGSize(width: 128, height: 128))
+
+        case lower.contains("splash"), lower.contains("spark"):
+            // Small tight glint.
+            return generateRadialGradient(size: CGSize(width: 16, height: 16), color: .white)
 
         default:
-            // Generic soft circle
+            // Halo / glow / unknown: soft circular glow.
             return generateRadialGradient(size: CGSize(width: size, height: size), color: .white)
         }
+    }
+
+    /// Thin vertical raindrop streak: bright core tapering to transparent, faint
+    /// cool tint. Drawn as a radial gradient stretched along Y so it reads as a
+    /// motion-blurred drop rather than a dot.
+    private func generateRaindrop(size: CGSize) -> NSImage {
+        let image = NSImage(size: size)
+        image.lockFocus()
+        let ctx = NSGraphicsContext.current!.cgContext
+        let cs = CGColorSpaceCreateDeviceRGB()
+        let colors = [
+            CGColor(colorSpace: cs, components: [1.0, 1.0, 1.0, 0.95])!,
+            CGColor(colorSpace: cs, components: [0.78, 0.85, 1.0, 0.35])!,
+            CGColor(colorSpace: cs, components: [0.70, 0.80, 1.0, 0.0])!
+        ] as CFArray
+        let gradient = CGGradient(colorsSpace: cs, colors: colors, locations: [0, 0.5, 1])!
+        ctx.translateBy(x: size.width / 2, y: size.height / 2)
+        // Stretch the circular gradient vertically into an elongated teardrop.
+        ctx.scaleBy(x: 1.0, y: size.height / size.width)
+        ctx.drawRadialGradient(gradient, startCenter: .zero, startRadius: 0,
+                               endCenter: .zero, endRadius: size.width / 2, options: [])
+        image.unlockFocus()
+        return image
+    }
+
+    /// Soft fog/smoke puff: several overlapping low-opacity radial blobs at fixed
+    /// offsets so the silhouette is cloudy and irregular instead of a clean disc.
+    private func generateFogPuff(size: CGSize) -> NSImage {
+        let image = NSImage(size: size)
+        image.lockFocus()
+        let ctx = NSGraphicsContext.current!.cgContext
+        let cs = CGColorSpaceCreateDeviceRGB()
+        // (centerX fraction, centerY fraction, radius fraction, peak alpha)
+        let blobs: [(CGFloat, CGFloat, CGFloat, CGFloat)] = [
+            (0.50, 0.50, 0.50, 0.28),
+            (0.38, 0.56, 0.34, 0.20),
+            (0.63, 0.47, 0.36, 0.20),
+            (0.50, 0.63, 0.30, 0.16),
+            (0.46, 0.40, 0.28, 0.14)
+        ]
+        for (fx, fy, fr, fa) in blobs {
+            let colors = [
+                CGColor(colorSpace: cs, components: [1, 1, 1, fa])!,
+                CGColor(colorSpace: cs, components: [1, 1, 1, 0])!
+            ] as CFArray
+            let gradient = CGGradient(colorsSpace: cs, colors: colors, locations: [0, 1])!
+            let center = CGPoint(x: size.width * fx, y: size.height * fy)
+            let radius = min(size.width, size.height) * fr
+            ctx.drawRadialGradient(gradient, startCenter: center, startRadius: 0,
+                                   endCenter: center, endRadius: radius, options: [])
+        }
+        image.unlockFocus()
+        return image
     }
 
     private func generateRadialGradient(size: CGSize, color: NSColor) -> NSImage {
