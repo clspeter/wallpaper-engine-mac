@@ -30,6 +30,28 @@ struct SceneWallpaperView: NSViewRepresentable {
             skView.presentScene(scene)
         }
 
+        // Test hook: when OWE_DUMP_SCENE is set to a file path, offscreen-render
+        // the presented scene to a PNG there via the view's own Metal context.
+        // This lets a headless/CI/background session visually verify scene
+        // rendering without Screen Recording (TCC) permission, which screencapture
+        // requires and which such sessions can't grant. Unset in normal use → no-op.
+        // OWE_DUMP_SCENE_DELAY (seconds, default 4) tunes warm-up before capture.
+        if let dumpPath = ProcessInfo.processInfo.environment["OWE_DUMP_SCENE"] {
+            let delay = Double(ProcessInfo.processInfo.environment["OWE_DUMP_SCENE_DELAY"] ?? "") ?? 4.0
+            DispatchQueue.main.asyncAfter(deadline: .now() + delay) {
+                guard let scene = skView.scene else { NSLog("[DUMP] no scene presented"); return }
+                guard let tex = skView.texture(from: scene) else { NSLog("[DUMP] texture(from:) returned nil"); return }
+                let rep = NSBitmapImageRep(cgImage: tex.cgImage())
+                guard let png = rep.representation(using: .png, properties: [:]) else { NSLog("[DUMP] PNG encode failed"); return }
+                do {
+                    try png.write(to: URL(fileURLWithPath: dumpPath))
+                    NSLog("[DUMP] wrote %@ (%dx%d)", dumpPath, rep.pixelsWide, rep.pixelsHigh)
+                } catch {
+                    NSLog("[DUMP] write failed: %@", error.localizedDescription)
+                }
+            }
+        }
+
         return skView
     }
 
