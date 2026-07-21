@@ -357,8 +357,7 @@ private struct WorkshopItemCard: View {
                 case .success(let image):
                     image
                         .resizable()
-                        .aspectRatio(16/9, contentMode: .fill)
-                        .clipped()
+                        .scaledToFill()
                 case .failure:
                     placeholder
                 default:
@@ -366,7 +365,10 @@ private struct WorkshopItemCard: View {
                         .overlay(ProgressView().controlSize(.small))
                 }
             }
-            .frame(height: 120)
+            // Match the library/downloaded grid: a square (1:1) preview that fills the
+            // card width, rather than the previous fixed-height 16:9 crop.
+            .frame(maxWidth: .infinity)
+            .aspectRatio(1, contentMode: .fit)
             .clipped()
 
             // Info
@@ -445,7 +447,6 @@ private struct WorkshopItemCard: View {
     private var placeholder: some View {
         Rectangle()
             .fill(Color(nsColor: .separatorColor))
-            .aspectRatio(16/9, contentMode: .fill)
     }
 
     private func formatCount(_ count: Int) -> String {
