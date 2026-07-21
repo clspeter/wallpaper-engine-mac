@@ -101,25 +101,33 @@ class SceneWallpaperViewModel: ObservableObject {
             skScene.backgroundColor = NSColor(red: c.r, green: c.g, blue: c.b, alpha: 1.0)
         }
 
-        // Show only the base background image (no effects/particles/additive layers)
+        // Single pass in scene order so insertion order preserves back-to-front layering.
+        // Base background images plus wired particle emitters (additive image overlays still skipped).
         var hasImage = false
         for obj in scene.objects {
-            guard obj.visible != false, obj.image != nil else { continue }
-            // Skip additive/overlay layers that look like effects
-            if let node = buildImageNode(obj, wallpaperDir: wallpaperDir) {
-                if node.blendMode == .add { continue }
-                skScene.addChild(node)
-                hasImage = true
+            guard obj.visible != false else { continue }
+            if obj.image != nil {
+                // Skip additive/overlay layers that look like effects
+                if let node = buildImageNode(obj, wallpaperDir: wallpaperDir) {
+                    if node.blendMode == .add { continue }
+                    skScene.addChild(node)
+                    hasImage = true
+                }
+            } else if obj.particle != nil {
+                if let node = buildParticleNode(obj, wallpaperDir: wallpaperDir, sceneSize: skScene.size) {
+                    skScene.addChild(node)
+                }
             }
         }
 
-        // Fallback: use preview image
+        // Fallback: use preview image. Push behind any particle emitters we added.
         if !hasImage {
             let previewImage = loadPreviewImage(wallpaperDir: wallpaperDir)
             if let img = previewImage {
                 let node = SKSpriteNode(texture: SKTexture(image: img))
                 node.size = skScene.size
                 node.position = CGPoint(x: skScene.size.width / 2, y: skScene.size.height / 2)
+                node.zPosition = -1
                 skScene.addChild(node)
             }
         }
@@ -242,8 +250,9 @@ class SceneWallpaperViewModel: ObservableObject {
                 emitter.particleBirthRate *= CGFloat(overrideRate)
             }
 
-            // Emission area from distancemax (sphererandom emitter)
-            if em.name == "sphererandom" {
+            // Emission area from distancemax. sphererandom and boxrandom are both
+            // volume emitters — without this they collapse to a single-point spray.
+            if em.name == "sphererandom" || em.name == "boxrandom" {
                 let dist = CGFloat(em.distancemax ?? 100)
                 emitter.particlePositionRange = CGVector(dx: dist * 2, dy: dist * 2)
             }
