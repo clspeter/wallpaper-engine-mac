@@ -19,7 +19,9 @@ class WorkshopViewModel: ObservableObject {
     @Published var selectedRating: String = "Everyone"   // single-select (maturity ceiling)
     @Published var selectedType: String? = nil           // single-select, nil = any
     @Published var selectedResolution: String? = nil     // single-select, nil = any
-    @Published var selectedGenres: Set<String> = []      // multi-select, OR
+    @Published var selectedCategory: String? = nil       // single-select, nil = any
+    @Published var selectedGenres: Set<String> = []      // multi-select, OR (client-side)
+    @Published var selectedMisc: Set<String> = []        // multi-select, AND (server-side)
 
     let steamCmd: SteamCmdService
     private let api = WorkshopAPIService()
@@ -39,10 +41,29 @@ class WorkshopViewModel: ObservableObject {
         "Sports", "Technology", "Television", "Vehicle", "Unspecified",
     ]
 
-    // Common Resolution group values (verified-working subset of the official list).
+    // Official 431960 Resolution group, full 25-value list (Steam readytouse_tags
+    // snapshot 2026-07-21), in Steam's display order.
     static let resolutionTags = [
-        "1920 x 1080", "2560 x 1440", "3840 x 2160",
-        "3440 x 1440", "1440 x 2560",
+        "Standard Definition", "1280 x 720", "1366 x 768", "1920 x 1080",
+        "2560 x 1440", "3840 x 2160",
+        "Ultrawide Standard Definition", "Ultrawide 2560 x 1080", "Ultrawide 3440 x 1440",
+        "Dual Standard Definition", "Dual 3840 x 1080", "Dual 5120 x 1440", "Dual 7680 x 2160",
+        "Triple Standard Definition", "Triple 4096 x 768", "Triple 5760 x 1080",
+        "Triple 7680 x 1440", "Triple 11520 x 2160",
+        "Portrait Standard Definition", "Portrait 720 x 1280", "Portrait 1080 x 1920",
+        "Portrait 1440 x 2560", "Portrait 2160 x 3840",
+        "Other resolution", "Dynamic resolution",
+    ]
+
+    // Official Category group (single-select).
+    static let categoryTags = ["Wallpaper", "Preset", "Asset"]
+
+    // Official Miscellaneous group (multi-select). Unlike Genre's OR, these are
+    // narrowing attributes, so multiple selections AND together — which is
+    // Steam's native `match_all_tags` behavior and can stay server-side.
+    static let miscTags = [
+        "Approved", "Audio responsive", "3D", "Customizable", "Puppet Warp",
+        "HDR", "Media Integration", "User Shortcut", "Video Texture", "Asset Pack",
     ]
 
     /// Tags that must be present, sent as `requiredtags[]` (server-side, AND).
@@ -50,6 +71,8 @@ class WorkshopViewModel: ObservableObject {
         var tags: [String] = []
         if let selectedType { tags.append(selectedType) }
         if let selectedResolution { tags.append(selectedResolution) }
+        if let selectedCategory { tags.append(selectedCategory) }
+        tags.append(contentsOf: selectedMisc.sorted())
         return tags
     }
 
@@ -124,30 +147,4 @@ class WorkshopViewModel: ObservableObject {
         steamCmd.downloadProgress[item.id]
     }
 
-    // MARK: - Filter selection
-
-    func selectRating(_ tag: String) {
-        selectedRating = tag
-        currentPage = 1
-    }
-
-    /// Single-select groups toggle off when the active value is tapped again.
-    func selectType(_ tag: String) {
-        selectedType = (selectedType == tag) ? nil : tag
-        currentPage = 1
-    }
-
-    func selectResolution(_ tag: String) {
-        selectedResolution = (selectedResolution == tag) ? nil : tag
-        currentPage = 1
-    }
-
-    func toggleGenre(_ tag: String) {
-        if selectedGenres.contains(tag) {
-            selectedGenres.remove(tag)
-        } else {
-            selectedGenres.insert(tag)
-        }
-        currentPage = 1
-    }
 }

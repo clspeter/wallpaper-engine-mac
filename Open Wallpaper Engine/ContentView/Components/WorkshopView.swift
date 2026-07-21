@@ -233,29 +233,25 @@ private struct WorkshopBrowserView: View {
             .cornerRadius(8)
             .padding(.horizontal)
 
-            // Tag filters, grouped by Steam's taxonomy. Rating/Type/Resolution are
-            // single-select; Genre is multi-select (OR).
-            ScrollView(.horizontal, showsIndicators: false) {
-                HStack(spacing: 4) {
-                    filterChips("Rating:", WorkshopViewModel.contentRatingTags,
-                                isSelected: { viewModel.selectedRating == $0 },
-                                action: { viewModel.selectRating($0) })
-                    Divider().frame(height: 20)
-                    filterChips("Type:", WorkshopViewModel.typeTags,
-                                isSelected: { viewModel.selectedType == $0 },
-                                action: { viewModel.selectType($0) })
-                    Divider().frame(height: 20)
-                    filterChips("Resolution:", WorkshopViewModel.resolutionTags,
-                                isSelected: { viewModel.selectedResolution == $0 },
-                                action: { viewModel.selectResolution($0) })
-                    Divider().frame(height: 20)
-                    filterChips("Genre:", WorkshopViewModel.genreTags,
-                                isSelected: { viewModel.selectedGenres.contains($0) },
-                                action: { viewModel.toggleGenre($0) })
+            HStack(alignment: .top, spacing: 0) {
+                VStack(spacing: 8) {
+                    resultsView
                 }
-                .padding(.horizontal)
+                .frame(maxWidth: .infinity)
+                Divider()
+                WorkshopFilterPanel(viewModel: viewModel)
+                    .frame(width: 200)
             }
+        }
+        .task {
+            if viewModel.items.isEmpty {
+                await viewModel.search()
+            }
+        }
+    }
 
+    @ViewBuilder
+    private var resultsView: some View {
             // Results
             if viewModel.isLoading && viewModel.items.isEmpty {
                 Spacer()
@@ -319,40 +315,98 @@ private struct WorkshopBrowserView: View {
                     }
                 }
             }
-        }
-        .task {
-            if viewModel.items.isEmpty {
-                await viewModel.search()
+    }
+}
+
+// MARK: - Workshop Filter Panel
+
+// Official-style grouped filter panel, mirroring Steam's 431960 taxonomy
+// (readytouse_tags snapshot 2026-07-21) in Steam's group order and widget
+// semantics: "select" groups render as single-select controls, "checkbox"
+// groups as multi-select checkboxes. The conditional asset-only groups
+// (Asset Type / Asset Genre / Script Type) are intentionally omitted.
+private struct WorkshopFilterPanel: View {
+    @ObservedObject var viewModel: WorkshopViewModel
+
+    var body: some View {
+        ScrollView {
+            VStack(alignment: .leading, spacing: 18) {
+                FilterSection("Miscellaneous", alignment: .leading) {
+                    checkboxes(selection: $viewModel.selectedMisc,
+                               options: WorkshopViewModel.miscTags)
+                }
+                FilterSection("Type", alignment: .leading) {
+                    optionalRadioGroup(selection: $viewModel.selectedType,
+                                       options: WorkshopViewModel.typeTags)
+                }
+                FilterSection("Age Rating", alignment: .leading) {
+                    Picker("", selection: $viewModel.selectedRating) {
+                        ForEach(WorkshopViewModel.contentRatingTags, id: \.self) { tag in
+                            Text(tag).tag(tag)
+                        }
+                    }
+                    .pickerStyle(.radioGroup)
+                    .labelsHidden()
+                }
+                FilterSection("Genre", alignment: .leading) {
+                    checkboxes(selection: $viewModel.selectedGenres,
+                               options: WorkshopViewModel.genreTags)
+                }
+                FilterSection("Resolution", alignment: .leading) {
+                    Picker("", selection: $viewModel.selectedResolution) {
+                        Text("Any").tag(String?.none)
+                        ForEach(WorkshopViewModel.resolutionTags, id: \.self) { tag in
+                            Text(tag).tag(String?.some(tag))
+                        }
+                    }
+                    .pickerStyle(.menu)
+                    .labelsHidden()
+                }
+                FilterSection("Category", alignment: .leading) {
+                    optionalRadioGroup(selection: $viewModel.selectedCategory,
+                                       options: WorkshopViewModel.categoryTags)
+                }
             }
+            .padding(10)
         }
+        .onChange(of: viewModel.selectedMisc)       { _ in research() }
+        .onChange(of: viewModel.selectedType)       { _ in research() }
+        .onChange(of: viewModel.selectedRating)     { _ in research() }
+        .onChange(of: viewModel.selectedGenres)     { _ in research() }
+        .onChange(of: viewModel.selectedResolution) { _ in research() }
+        .onChange(of: viewModel.selectedCategory)   { _ in research() }
     }
 
-    private func filterChips(
-        _ label: String,
-        _ tags: [String],
-        isSelected: @escaping (String) -> Bool,
-        action: @escaping (String) -> Void
-    ) -> some View {
-        HStack(spacing: 4) {
-            if !label.isEmpty {
-                Text(label)
-                    .font(.caption2)
-                    .foregroundStyle(.secondary)
+    private func research() {
+        viewModel.currentPage = 1
+        Task { await viewModel.search() }
+    }
+
+    private func optionalRadioGroup(selection: Binding<String?>, options: [String]) -> some View {
+        Picker("", selection: selection) {
+            Text("Any").tag(String?.none)
+            ForEach(options, id: \.self) { tag in
+                Text(tag).tag(String?.some(tag))
             }
-            ForEach(tags, id: \.self) { tag in
-                Button {
-                    action(tag)   // updates selection + resets currentPage
-                    Task { await viewModel.search() }
-                } label: {
-                    Text(tag)
-                        .font(.caption)
-                        .padding(.horizontal, 8)
-                        .padding(.vertical, 4)
-                        .background(isSelected(tag) ? Color.accentColor : Color(nsColor: .controlBackgroundColor))
-                        .foregroundStyle(isSelected(tag) ? .white : .primary)
-                        .cornerRadius(12)
-                }
-                .buttonStyle(.plain)
+        }
+        .pickerStyle(.radioGroup)
+        .labelsHidden()
+    }
+
+    private func checkboxes(selection: Binding<Set<String>>, options: [String]) -> some View {
+        VStack(alignment: .leading, spacing: 2) {
+            ForEach(options, id: \.self) { option in
+                Toggle(option, isOn: Binding(
+                    get: { selection.wrappedValue.contains(option) },
+                    set: { isOn in
+                        if isOn {
+                            selection.wrappedValue.insert(option)
+                        } else {
+                            selection.wrappedValue.remove(option)
+                        }
+                    }
+                ))
+                .toggleStyle(.checkbox)
             }
         }
     }
