@@ -13,3 +13,6 @@ Thumbs.db
 
 ## Playwright MCP
 .playwright-mcp/
+
+## Coverage build artifacts
+*.profraw
