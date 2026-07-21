@@ -53,9 +53,17 @@ class WorkshopAPIService {
 
     /// Search workshop items using the public Steam API.
     /// GetPublishedFileDetails doesn't require an API key for basic queries.
+    /// - Parameters:
+    ///   - requiredTags: sent as `requiredtags[]` (server-side, AND across all).
+    ///   - excludedTags: sent as `excludedtags[]` (server-side, item hidden if any match).
+    ///   - genreFilter: OR-matched client-side against each item's tags. Steam has only a
+    ///     single global `match_all_tags` switch, so "match ANY of these" can't be expressed
+    ///     server-side alongside the AND'd required tags — we filter the returned page instead.
     func searchItems(
         query: String = "",
-        tags: [String] = [],
+        requiredTags: [String] = [],
+        excludedTags: [String] = [],
+        genreFilter: Set<String> = [],
         sortOrder: WorkshopSortOrder = .trending,
         page: Int = 1,
         perPage: Int = 20
@@ -80,8 +88,11 @@ class WorkshopAPIService {
             queryItems.append(URLQueryItem(name: "search_text", value: query))
         }
 
-        for (index, tag) in tags.enumerated() {
+        for (index, tag) in requiredTags.enumerated() {
             queryItems.append(URLQueryItem(name: "requiredtags[\(index)]", value: tag))
+        }
+        for (index, tag) in excludedTags.enumerated() {
+            queryItems.append(URLQueryItem(name: "excludedtags[\(index)]", value: tag))
         }
 
         let apiKey = Self.loadAPIKey()
@@ -110,7 +121,12 @@ class WorkshopAPIService {
             throw WorkshopAPIError.httpError(httpResponse.statusCode)
         }
 
-        return try parseQueryResponse(data)
+        let parsed = try parseQueryResponse(data)
+
+        // Genre OR is applied here (see doc comment on the parameter): keep items whose
+        // tags intersect the requested genres. An empty filter means "any genre".
+        guard !genreFilter.isEmpty else { return parsed }
+        return parsed.filter { !Set($0.tags).isDisjoint(with: genreFilter) }
     }
 
     /// Get details for specific workshop items by their IDs.

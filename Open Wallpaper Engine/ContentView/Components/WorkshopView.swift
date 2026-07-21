@@ -233,14 +233,25 @@ private struct WorkshopBrowserView: View {
             .cornerRadius(8)
             .padding(.horizontal)
 
-            // Tag filters
+            // Tag filters, grouped by Steam's taxonomy. Rating/Type/Resolution are
+            // single-select; Genre is multi-select (OR).
             ScrollView(.horizontal, showsIndicators: false) {
                 HStack(spacing: 4) {
-                    tagGroup("Rating:", WorkshopViewModel.contentRatingTags)
+                    filterChips("Rating:", WorkshopViewModel.contentRatingTags,
+                                isSelected: { viewModel.selectedRating == $0 },
+                                action: { viewModel.selectRating($0) })
                     Divider().frame(height: 20)
-                    tagGroup("Type:", WorkshopViewModel.typeTags)
+                    filterChips("Type:", WorkshopViewModel.typeTags,
+                                isSelected: { viewModel.selectedType == $0 },
+                                action: { viewModel.selectType($0) })
                     Divider().frame(height: 20)
-                    tagGroup("", WorkshopViewModel.genreTags)
+                    filterChips("Resolution:", WorkshopViewModel.resolutionTags,
+                                isSelected: { viewModel.selectedResolution == $0 },
+                                action: { viewModel.selectResolution($0) })
+                    Divider().frame(height: 20)
+                    filterChips("Genre:", WorkshopViewModel.genreTags,
+                                isSelected: { viewModel.selectedGenres.contains($0) },
+                                action: { viewModel.toggleGenre($0) })
                 }
                 .padding(.horizontal)
             }
@@ -316,7 +327,12 @@ private struct WorkshopBrowserView: View {
         }
     }
 
-    private func tagGroup(_ label: String, _ tags: [String]) -> some View {
+    private func filterChips(
+        _ label: String,
+        _ tags: [String],
+        isSelected: @escaping (String) -> Bool,
+        action: @escaping (String) -> Void
+    ) -> some View {
         HStack(spacing: 4) {
             if !label.isEmpty {
                 Text(label)
@@ -325,16 +341,15 @@ private struct WorkshopBrowserView: View {
             }
             ForEach(tags, id: \.self) { tag in
                 Button {
-                    viewModel.toggleTag(tag)
-                    viewModel.currentPage = 1
+                    action(tag)   // updates selection + resets currentPage
                     Task { await viewModel.search() }
                 } label: {
                     Text(tag)
                         .font(.caption)
                         .padding(.horizontal, 8)
                         .padding(.vertical, 4)
-                        .background(viewModel.selectedTags.contains(tag) ? Color.accentColor : Color(nsColor: .controlBackgroundColor))
-                        .foregroundStyle(viewModel.selectedTags.contains(tag) ? .white : .primary)
+                        .background(isSelected(tag) ? Color.accentColor : Color(nsColor: .controlBackgroundColor))
+                        .foregroundStyle(isSelected(tag) ? .white : .primary)
                         .cornerRadius(12)
                 }
                 .buttonStyle(.plain)
