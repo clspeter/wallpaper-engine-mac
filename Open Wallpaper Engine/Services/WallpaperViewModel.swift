@@ -143,19 +143,20 @@ class WallpaperViewModel: ObservableObject {
     var lastPlayVolume: Float = 1.0
     @Published public var playVolume: Float = 1.0 {
         willSet {
+            // Flip the menu-bar item between Mute and Unmute. Match on the action selector,
+            // not the title: the title is localized, so comparing it against the English
+            // literal "Mute"/"Unmute" never matched in non-English locales and left the toggle
+            // stuck (you could mute but never switch back). Keep the ⌘M shortcut on both states.
+            guard let menu = AppDelegate.shared.statusItem.menu else { return }
             if newValue == 0.0 {
-                for (index, item) in AppDelegate.shared.statusItem.menu!.items.enumerated() {
-                    if item.title == "Mute" {
-                        AppDelegate.shared.statusItem.menu!.items[index] =
-                            .init(title: String(localized: "Unmute"), systemImage: "speaker.fill", action: #selector(AppDelegate.shared.unmute), keyEquivalent: "")
-                    }
+                if let index = menu.items.firstIndex(where: { $0.action == #selector(AppDelegate.shared.mute) }) {
+                    menu.items[index] =
+                        .init(title: String(localized: "Unmute"), systemImage: "speaker.fill", action: #selector(AppDelegate.shared.unmute), keyEquivalent: "m")
                 }
             } else {
-                for (index, item) in AppDelegate.shared.statusItem.menu!.items.enumerated() {
-                    if item.title == "Unmute" {
-                        AppDelegate.shared.statusItem.menu!.items[index] =
-                            .init(title: String(localized: "Mute"), systemImage: "speaker.slash.fill", action: #selector(AppDelegate.shared.mute), keyEquivalent: "")
-                    }
+                if let index = menu.items.firstIndex(where: { $0.action == #selector(AppDelegate.shared.unmute) }) {
+                    menu.items[index] =
+                        .init(title: String(localized: "Mute"), systemImage: "speaker.slash.fill", action: #selector(AppDelegate.shared.mute), keyEquivalent: "m")
                 }
             }
         }
