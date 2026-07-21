@@ -346,35 +346,33 @@ struct FilterResults: View {
                                 }
                                 .toggleStyle(.checkbox)
                             }
-                            FilterSection("Tags", alignment: .leading) {
-                                HStack {
-                                    Button("All")  {
-                                        viewModel.tag = .all
-                                    }
-                                    Button("None") {
-                                        viewModel.tag = .none
-                                    }
-                                }
-                                .buttonStyle(.link)
-                                Group {
-                                    ForEach(Array(zip(FRTag.allOptions.indices, FRTag.allOptions)), id: \.0) { (i, option) in
-                                        Toggle(option, isOn: Binding<Bool>(get: {
-                                            viewModel.tag.contains(FRTag(rawValue: 1 << i))
-                                        }, set: {
-                                            if $0 {
-                                                viewModel.tag.insert(FRTag(rawValue: 1 << i))
-                                            } else {
-                                                viewModel.tag.remove(FRTag(rawValue: 1 << i))
-                                            }
-                                            print(String(describing: viewModel.tag))
-                                        }))
-                                    }
-                                }
-                                .toggleStyle(.checkbox)
-                            }
                         }
                         .disabled(true)
-                        
+                        FilterSection("Tags", alignment: .leading) {
+                            HStack {
+                                Button("All")  {
+                                    viewModel.tag = .all
+                                }
+                                Button("None") {
+                                    viewModel.tag = .none
+                                }
+                            }
+                            .buttonStyle(.link)
+                            Group {
+                                ForEach(Array(zip(FRTag.allOptions.indices, FRTag.allOptions)), id: \.0) { (i, option) in
+                                    Toggle(option, isOn: Binding<Bool>(get: {
+                                        viewModel.tag.contains(FRTag(rawValue: 1 << i))
+                                    }, set: {
+                                        if $0 {
+                                            viewModel.tag.insert(FRTag(rawValue: 1 << i))
+                                        } else {
+                                            viewModel.tag.remove(FRTag(rawValue: 1 << i))
+                                        }
+                                    }))
+                                }
+                            }
+                            .toggleStyle(.checkbox)
+                        }
                     }
                 }
                 .padding(.trailing)

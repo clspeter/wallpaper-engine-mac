@@ -225,7 +225,7 @@ struct FRTag: FilterResultsModel {
         "MMD",
         "Music",
         "Nature",
-        "PixelArt",
+        "Pixel art",
         "Relaxing",
         "Retro",
         "Sci-Fi",
@@ -233,7 +233,7 @@ struct FRTag: FilterResultsModel {
         "Technology",
         "Television",
         "Vehicle",
-        "UnspecifiedGenre"
+        "Unspecified"
     ]
     
     static let abstract             = FRTag(rawValue: 1 << 0)
@@ -268,4 +268,35 @@ struct FRTag: FilterResultsModel {
         .retro, .sciFi, .sports, .technology, .television, .vehicle, .unspecifiedGenre
     ]
     static let none: FRTag = []
+}
+
+// The mapping init lives in an extension so the synthesized memberwise
+// `init(rawValue:)` (required by OptionSet) isn't suppressed.
+extension FRTag {
+    /// Maps a wallpaper's `project.json` tag strings onto the checkbox bitmask.
+    /// Matching ignores case and non-alphanumerics ("Pixel art" == "pixelart",
+    /// "Sci-Fi" == "scifi"); a wallpaper with no recognizable genre tag falls
+    /// into the "Unspecified" bucket so unchecking it is the only way to hide
+    /// untagged items — same bucketing the official client uses.
+    init(projectTags: [String]?) {
+        var matched = FRTag.none
+        for tag in projectTags ?? [] {
+            if let bit = Self.normalizedLookup[Self.normalize(tag)] {
+                matched.insert(bit)
+            }
+        }
+        self = matched.isEmpty ? .unspecifiedGenre : matched
+    }
+
+    private static let normalizedLookup: [String: FRTag] = {
+        var map = [String: FRTag]()
+        for (i, name) in allOptions.enumerated() {
+            map[normalize(name)] = FRTag(rawValue: 1 << i)
+        }
+        return map
+    }()
+
+    private static func normalize(_ s: String) -> String {
+        String(s.lowercased().filter { $0.isLetter || $0.isNumber })
+    }
 }
