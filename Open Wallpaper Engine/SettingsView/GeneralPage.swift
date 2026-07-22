@@ -23,6 +23,23 @@ struct GeneralPage: SettingsPage {
             } header: {
                 Label("Automatic Startup", systemImage: "star.fill")
             }
+            // MARK: Wallpaper Rotation
+            Section {
+                Toggle("Automatically rotate wallpapers", isOn: $viewModel.playlist.enabled)
+                Picker("Order", selection: $viewModel.playlist.order) {
+                    Text("In Order").tag(GSPlaylistOrder.sequential)
+                    Text("Shuffle").tag(GSPlaylistOrder.shuffle)
+                }
+                .disabled(!viewModel.playlist.enabled)
+                Stepper(value: $viewModel.playlist.intervalMinutes, in: 1...240, step: 1) {
+                    Text("Switch every \(Int(viewModel.playlist.intervalMinutes)) min")
+                }
+                .disabled(!viewModel.playlist.enabled)
+            } header: {
+                Label("Wallpaper Rotation", systemImage: "photo.stack")
+            } footer: {
+                Text("Rotates through every installed Scene, Video, and image wallpaper. Web and application wallpapers are skipped.")
+            }
             // MARK: Basic Setup
             Section {
                 Picker("Language", selection: $viewModel.settings.language) {

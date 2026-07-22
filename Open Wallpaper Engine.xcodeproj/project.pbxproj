@@ -63,6 +63,8 @@
 		CC0000000000000000000007 /* WorkshopAPIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC0000000000000000000008 /* WorkshopAPIService.swift */; };
 		CC0000000000000000000009 /* WorkshopViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC000000000000000000000A /* WorkshopViewModel.swift */; };
 		CC000000000000000000000B /* WorkshopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC000000000000000000000C /* WorkshopView.swift */; };
+		CC0000000000000000000011 /* PlaylistRotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC0000000000000000000010 /* PlaylistRotation.swift */; };
+		CC0000000000000000000013 /* PlaylistService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC0000000000000000000012 /* PlaylistService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -136,6 +138,8 @@
 		CC0000000000000000000008 /* WorkshopAPIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkshopAPIService.swift; sourceTree = "<group>"; };
 		CC000000000000000000000A /* WorkshopViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkshopViewModel.swift; sourceTree = "<group>"; };
 		CC000000000000000000000C /* WorkshopView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkshopView.swift; sourceTree = "<group>"; };
+		CC0000000000000000000010 /* PlaylistRotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaylistRotation.swift; sourceTree = "<group>"; };
+		CC0000000000000000000012 /* PlaylistService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaylistService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -227,6 +231,8 @@
 				CC0000000000000000000006 /* SteamCmdService.swift */,
 				CC0000000000000000000008 /* WorkshopAPIService.swift */,
 				CC000000000000000000000A /* WorkshopViewModel.swift */,
+				CC0000000000000000000010 /* PlaylistRotation.swift */,
+				CC0000000000000000000012 /* PlaylistService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -478,6 +484,8 @@
 				CC0000000000000000000007 /* WorkshopAPIService.swift in Sources */,
 				CC0000000000000000000009 /* WorkshopViewModel.swift in Sources */,
 				CC000000000000000000000B /* WorkshopView.swift in Sources */,
+				CC0000000000000000000011 /* PlaylistRotation.swift in Sources */,
+				CC0000000000000000000013 /* PlaylistService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

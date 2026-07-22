@@ -43,6 +43,12 @@ extension AppDelegate {
         wallpaperViewModel.nextCurrentWallpaper = wallpaper
     }
 
+    /// Manually advance the rotation (G5). Works even when auto-rotation is off,
+    /// acting as a "shuffle to next wallpaper" shortcut.
+    @objc func nextWallpaper() {
+        playlistService.advanceManually()
+    }
+
     func buildRecentWallpapersMenu() -> NSMenu {
         let menu = NSMenu(title: String(localized: "Recent Wallpapers"))
         let recents = wallpaperViewModel.recentWallpapers
@@ -77,6 +83,11 @@ extension AppDelegate {
                   keyEquivalent: "o"),
 
             recentWallpapersMenuItem,
+
+            .init(title: String(localized: "Next Wallpaper"),
+                  systemImage: "forward.fill",
+                  action: #selector(nextWallpaper),
+                  keyEquivalent: "n"),
 
             .separator(),
 

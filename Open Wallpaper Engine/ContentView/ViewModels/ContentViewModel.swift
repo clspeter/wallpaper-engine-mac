@@ -97,6 +97,10 @@ class ContentViewModel: ObservableObject, DropDelegate {
         return contents
     }
     
+    /// Every installed wallpaper, ignoring the browser's search/filter state.
+    /// Used by the rotation service (G5) so the playlist spans the whole library.
+    public var installedWallpapers: [WEWallpaper] { allWallpapers }
+
     /// Show all the wallpaper inside application wallpaper directory, without being filtered
     private var allWallpapers: [WEWallpaper] {
         self.urls.map({ url in

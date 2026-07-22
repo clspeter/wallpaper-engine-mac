@@ -112,7 +112,14 @@ class GlobalSettingsViewModel: ObservableObject {
     {
         didSet { save(); validate() }
     }
-    
+
+    /// Wallpaper-rotation config (G5). Persisted under its own key so it can't
+    /// break decoding of the older `GlobalSettings` blob. See `PlaylistSettings`.
+    @Published var playlist: PlaylistSettings
+    {
+        didSet { savePlaylist() }
+    }
+
     @Published var selection = 0
     
     @Published var isFirstLaunch = UserDefaults.standard.value(forKey: "IsFirstLaunch") as? Bool ?? true
@@ -130,7 +137,14 @@ class GlobalSettingsViewModel: ObservableObject {
         } else {
             self.settings = GlobalSettings()
         }
-        
+
+        if let data = UserDefaults.standard.data(forKey: "PlaylistSettings"),
+           let playlist = try? JSONDecoder().decode(PlaylistSettings.self, from: data) {
+            self.playlist = playlist
+        } else {
+            self.playlist = PlaylistSettings()
+        }
+
         // Add observers
         self.didFinishLaunchingNotificationCancellable =
         NotificationCenter.default.publisher(for: NSApplication.didFinishLaunchingNotification)
@@ -219,6 +233,12 @@ class GlobalSettingsViewModel: ObservableObject {
         let data = try! JSONEncoder().encode(settings)
         print(String(describing: String(data: data, encoding: .utf8)))
         UserDefaults.standard.set(data, forKey: "GlobalSettings")
+    }
+
+    func savePlaylist() {
+        if let data = try? JSONEncoder().encode(playlist) {
+            UserDefaults.standard.set(data, forKey: "PlaylistSettings")
+        }
     }
     
     func setQuality(_ quality: GSQuality) {

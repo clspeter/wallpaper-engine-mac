@@ -6,6 +6,7 @@
 //
 
 import Cocoa
+import Combine
 import SwiftUI
 import AVKit
 import WebKit
@@ -22,7 +23,13 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSWindowDelegate {
     var contentViewModel = ContentViewModel()
     var wallpaperViewModel = WallpaperViewModel()
     var globalSettingsViewModel = GlobalSettingsViewModel()
-    
+
+    lazy var playlistService = PlaylistService(
+        wallpaperViewModel: wallpaperViewModel,
+        poolProvider: { [weak self] in self?.contentViewModel.installedWallpapers ?? [] }
+    )
+    private var playlistCancellable: AnyCancellable?
+
     var importOpenPanel: NSOpenPanel!
     
     var eventHandler: Any?
@@ -65,6 +72,13 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSWindowDelegate {
     func applicationDidFinishLaunching(_ notification: Notification) {
         saveCurrentWallpaper()
         AppDelegate.shared.setPlacehoderWallpaper(with: wallpaperViewModel.currentWallpaper)
+
+        // Drive wallpaper rotation (G5): reconfigure the timer whenever the
+        // playlist config changes. `$playlist` emits its current value on
+        // subscription, so this also performs the initial start-if-enabled.
+        playlistCancellable = globalSettingsViewModel.$playlist
+            .removeDuplicates()
+            .sink { [weak self] in self?.playlistService.reconfigure(with: $0) }
 
         // 显示桌面壁纸
         for (_, window) in self.wallpaperWindows {
