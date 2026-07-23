@@ -48,8 +48,23 @@ enum WorkshopSortOrder: Int, CaseIterable, Identifiable {
     }
 }
 
+/// One page of search results.
+///
+/// `serverCount` is how many items Steam returned *before* the client-side genre
+/// OR filter. Pagination must key off this, not `items.count`: with a genre filter
+/// active a full page can filter down to zero while more pages still exist behind
+/// it, so treating an empty `items` as "end of results" would stop paging early.
+struct WorkshopSearchPage {
+    let items: [WorkshopItem]
+    let serverCount: Int
+}
+
 class WorkshopAPIService {
     static let wallpaperEngineAppId = 431960
+
+    /// Items requested per page. Callers compare a page's `serverCount` against
+    /// this to decide whether another page may exist.
+    static let defaultPerPage = 20
 
     /// Search workshop items using the public Steam API.
     /// GetPublishedFileDetails doesn't require an API key for basic queries.
@@ -66,8 +81,8 @@ class WorkshopAPIService {
         genreFilter: Set<String> = [],
         sortOrder: WorkshopSortOrder = .trending,
         page: Int = 1,
-        perPage: Int = 20
-    ) async throws -> [WorkshopItem] {
+        perPage: Int = WorkshopAPIService.defaultPerPage
+    ) async throws -> WorkshopSearchPage {
         // Use ISteamRemoteStorage/GetPublishedFileDetails for specific IDs
         // Use the public search endpoint for browsing
         var components = URLComponents(string: "https://api.steampowered.com/IPublishedFileService/QueryFiles/v1/")!
@@ -125,8 +140,10 @@ class WorkshopAPIService {
 
         // Genre OR is applied here (see doc comment on the parameter): keep items whose
         // tags intersect the requested genres. An empty filter means "any genre".
-        guard !genreFilter.isEmpty else { return parsed }
-        return parsed.filter { !Set($0.tags).isDisjoint(with: genreFilter) }
+        let filtered = genreFilter.isEmpty
+            ? parsed
+            : parsed.filter { !Set($0.tags).isDisjoint(with: genreFilter) }
+        return WorkshopSearchPage(items: filtered, serverCount: parsed.count)
     }
 
     /// Get details for specific workshop items by their IDs.

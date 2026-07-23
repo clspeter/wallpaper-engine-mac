@@ -10,6 +10,15 @@ class WorkshopViewModel: ObservableObject {
     @Published var errorMessage: String?
     @Published var currentPage = 1
 
+    /// False once a page comes back short, meaning there is nothing left to page into.
+    /// Drives whether the infinite-scroll trigger is still mounted.
+    @Published private(set) var hasMore = true
+
+    /// Set when a `loadMore` request fails. Infinite scroll stops auto-retrying while
+    /// this is set — otherwise the trigger would re-fire on every redraw and hammer the
+    /// API — and the view offers a manual retry instead.
+    @Published private(set) var loadMoreFailed = false
+
     // Filters are grouped by Steam's official taxonomy rather than a single flat
     // tag list. Steam's QueryFiles has only one global `match_all_tags` switch, so
     // "OR within a group, AND across groups" (what the original Wallpaper Engine
@@ -99,9 +108,12 @@ class WorkshopViewModel: ObservableObject {
     func search() async {
         isLoading = true
         errorMessage = nil
+        // A fresh query invalidates any previous end-of-results / failure verdict.
+        hasMore = true
+        loadMoreFailed = false
 
         do {
-            let results = try await api.searchItems(
+            let page = try await api.searchItems(
                 query: searchText,
                 requiredTags: requiredTags,
                 excludedTags: excludedTags,
@@ -109,34 +121,54 @@ class WorkshopViewModel: ObservableObject {
                 sortOrder: sortOrder,
                 page: currentPage
             )
-            items = results
+            items = page.items
+            hasMore = page.serverCount >= WorkshopAPIService.defaultPerPage
         } catch {
             errorMessage = error.localizedDescription
+            hasMore = false
         }
 
         isLoading = false
     }
 
+    /// Append the next page. Safe to call repeatedly from the infinite-scroll trigger:
+    /// overlapping calls, an exhausted list, and a failed previous attempt all no-op.
     @MainActor
     func loadMore() async {
-        currentPage += 1
+        guard !isLoading, hasMore, !loadMoreFailed else { return }
+
+        // Only commit the page advance once the request succeeds, so a transient
+        // failure doesn't silently skip a page on the next attempt.
+        let nextPage = currentPage + 1
         isLoading = true
 
         do {
-            let results = try await api.searchItems(
+            let page = try await api.searchItems(
                 query: searchText,
                 requiredTags: requiredTags,
                 excludedTags: excludedTags,
                 genreFilter: selectedGenres,
                 sortOrder: sortOrder,
-                page: currentPage
+                page: nextPage
             )
-            items.append(contentsOf: results)
+            currentPage = nextPage
+            items.append(contentsOf: page.items)
+            hasMore = page.serverCount >= WorkshopAPIService.defaultPerPage
         } catch {
             errorMessage = error.localizedDescription
+            loadMoreFailed = true
         }
 
         isLoading = false
+    }
+
+    /// Clear a `loadMore` failure so the infinite-scroll trigger can fire again.
+    @MainActor
+    func retryLoadMore() async {
+        guard loadMoreFailed else { return }
+        loadMoreFailed = false
+        errorMessage = nil
+        await loadMore()
     }
 
     func download(item: WorkshopItem) {

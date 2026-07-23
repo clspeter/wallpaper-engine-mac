@@ -301,17 +301,34 @@ private struct WorkshopBrowserView: View {
                     LazyVGrid(columns: [GridItem(.adaptive(minimum: 200, maximum: 300))], spacing: 12) {
                         ForEach(viewModel.items) { item in
                             WorkshopItemCard(item: item, viewModel: viewModel)
+                                // Infinite scroll: the trigger lives on the last cell
+                                // *inside* the LazyVGrid, so it only fires once the user
+                                // actually scrolls that far. A sentinel placed after the
+                                // grid would sit in the non-lazy ScrollView body and
+                                // appear immediately, paging without any scrolling.
+                                .onAppear {
+                                    guard item.id == viewModel.items.last?.id else { return }
+                                    Task { await viewModel.loadMore() }
+                                }
                         }
                     }
                     .padding()
 
-                    if !viewModel.items.isEmpty {
-                        Button("Load More") {
-                            Task { await viewModel.loadMore() }
+                    if viewModel.loadMoreFailed {
+                        VStack(spacing: 8) {
+                            Text("Couldn't load more results.")
+                                .font(.callout)
+                                .foregroundStyle(.secondary)
+                            Button("Try Again") {
+                                Task { await viewModel.retryLoadMore() }
+                            }
+                            .buttonStyle(.bordered)
                         }
-                        .buttonStyle(.bordered)
-                        .disabled(viewModel.isLoading)
                         .padding(.bottom)
+                    } else if viewModel.isLoading && !viewModel.items.isEmpty {
+                        ProgressView()
+                            .controlSize(.small)
+                            .padding(.bottom)
                     }
                 }
             }
