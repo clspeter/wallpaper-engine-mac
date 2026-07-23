@@ -46,7 +46,16 @@ struct GeneralPage: SettingsPage {
                     Text("Follow System").tag(GSLocalization.followSystem)
                     Text("English").tag(GSLocalization.en_US)
                     Text("Chinese Simplified").tag(GSLocalization.zh_CN)
-                }.disabled(true)
+                    Text("Chinese Traditional").tag(GSLocalization.zh_TW)
+                }
+                if viewModel.languageNeedsRestart {
+                    HStack {
+                        Text("Relaunch to apply the new language.")
+                            .foregroundStyle(.secondary)
+                        Spacer()
+                        Button("Relaunch") { viewModel.relaunch() }
+                    }
+                }
             } header: {
                 Label("Basic Setup", systemImage: "gearshape.fill")
             }

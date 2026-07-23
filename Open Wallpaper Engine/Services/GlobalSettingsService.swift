@@ -41,7 +41,19 @@ enum GSAppearance: String, CaseIterable, Identifiable, Codable {
 
 enum GSLocalization: String, CaseIterable, Identifiable, Codable {
     var id: Self { self }
-    case en_US, zh_CN, followSystem
+    case en_US, zh_CN, zh_TW, followSystem
+
+    /// The `AppleLanguages` value that pins the bundle to this language, or `nil` to
+    /// let macOS pick from the system preference order. These must match the
+    /// localization folder names the app ships (`en`, `zh-Hans`, `zh-Hant`).
+    var appleLanguageCode: String? {
+        switch self {
+        case .en_US: return "en"
+        case .zh_CN: return "zh-Hans"
+        case .zh_TW: return "zh-Hant"
+        case .followSystem: return nil
+        }
+    }
 }
 
 enum GSVideoFramework: String, CaseIterable, Identifiable, Codable {
@@ -110,8 +122,16 @@ struct GlobalSettings: Codable, Equatable {
 class GlobalSettingsViewModel: ObservableObject {
     @Published var settings: GlobalSettings
     {
-        didSet { save(); validate() }
+        didSet {
+            if oldValue.language != settings.language { didChangeLanguage(settings.language) }
+            save(); validate()
+        }
     }
+
+    /// True once the language has been changed in this session. macOS resolves a
+    /// bundle's localization at launch, so the new language only shows up after a
+    /// relaunch — the UI uses this to offer one.
+    @Published var languageNeedsRestart = false
 
     /// Wallpaper-rotation config (G5). Persisted under its own key so it can't
     /// break decoding of the older `GlobalSettings` blob. See `PlaylistSettings`.
@@ -144,6 +164,8 @@ class GlobalSettingsViewModel: ObservableObject {
         } else {
             self.playlist = PlaylistSettings()
         }
+
+        Self.syncLanguageOverride(self.settings.language)
 
         // Add observers
         self.didFinishLaunchingNotificationCancellable =
@@ -217,6 +239,35 @@ class GlobalSettingsViewModel: ObservableObject {
         }
     }
     
+    /// Pin (or release) the app's localization by writing the `AppleLanguages`
+    /// override that the bundle loader reads at launch. `GlobalSettings.language` is
+    /// the authoritative preference, so this is re-asserted on every launch as well
+    /// as on change — otherwise the two could drift apart (a defaults restore, or a
+    /// build predating this setting) and the picker would silently stop working.
+    static func syncLanguageOverride(_ language: GSLocalization) {
+        if let code = language.appleLanguageCode {
+            UserDefaults.standard.set([code], forKey: "AppleLanguages")
+        } else {
+            UserDefaults.standard.removeObject(forKey: "AppleLanguages")
+        }
+    }
+
+    /// Nothing in the running process re-reads `AppleLanguages`, hence the restart flag.
+    func didChangeLanguage(_ newValue: GSLocalization) {
+        Self.syncLanguageOverride(newValue)
+        languageNeedsRestart = true
+    }
+
+    /// Launch a fresh copy of this bundle, then quit the current one.
+    func relaunch() {
+        let configuration = NSWorkspace.OpenConfiguration()
+        configuration.createsNewApplicationInstance = true
+        NSWorkspace.shared.openApplication(at: Bundle.main.bundleURL,
+                                           configuration: configuration) { _, _ in
+            DispatchQueue.main.async { NSApp.terminate(nil) }
+        }
+    }
+
     func didCurrentWallpaperChange(_ newValue: WEWallpaper) {
         AppDelegate.shared.setPlacehoderWallpaper(with: newValue)
     }

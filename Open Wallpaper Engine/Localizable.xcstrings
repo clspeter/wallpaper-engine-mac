@@ -90,7 +90,14 @@
       }
     },
     "!!! Notice that this may affects performance !!!" : {
-
+      "localizations" : {
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "！！！請注意，這可能會影響效能！！！"
+          }
+        }
+      }
     },
     "@haren724" : {
       "localizations" : {
@@ -126,11 +133,24 @@
             "state" : "translated",
             "value" : "建议仅将 x8 MSAA 用于功能强大的高端台式机显卡。"
           }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "建議僅在高階桌上型顯示卡上使用 ×8 MSAA。"
+          }
         }
       }
     },
     "1 per page (developer)" : {
-
+      "localizations" : {
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "每頁 1 個（開發者）"
+          }
+        }
+      }
     },
     "10 per page" : {
       "localizations" : {
@@ -138,6 +158,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "10 个/页"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "每頁 10 個"
           }
         }
       }
@@ -149,6 +175,12 @@
             "state" : "translated",
             "value" : "25 个/页"
           }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "每頁 25 個"
+          }
         }
       }
     },
@@ -158,6 +190,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "50 个/页"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "每頁 50 個"
           }
         }
       }
@@ -178,6 +216,16 @@
         }
       }
     },
+    "A Steam Web API key is required to browse." : {
+      "localizations" : {
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "瀏覽創意工坊需要 Steam Web API 金鑰。"
+          }
+        }
+      }
+    },
     "About" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -185,6 +233,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "关于"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "關於"
           }
         }
       }
@@ -196,6 +250,12 @@
             "state" : "translated",
             "value" : "关于Open Wallpaper Engine"
           }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "關於 Open Wallpaper Engine"
+          }
         }
       }
     },
@@ -205,6 +265,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "添加到喜爱列表"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "加入收藏"
           }
         }
       }
@@ -236,6 +302,12 @@
             "state" : "needs_review",
             "value" : "调整菜单栏颜色"
           }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "調整選單列顏色"
+          }
         }
       }
     },
@@ -245,6 +317,12 @@
           "stringUnit" : {
             "state" : "needs_review",
             "value" : "高级"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "進階"
           }
         }
       }
@@ -256,6 +334,12 @@
             "state" : "needs_review",
             "value" : "年龄分级"
           }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "年齡分級"
+          }
         }
       }
     },
@@ -266,11 +350,24 @@
             "state" : "needs_review",
             "value" : "全选"
           }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "全選"
+          }
         }
       }
     },
     "Animates" : {
-
+      "localizations" : {
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "播放動畫"
+          }
+        }
+      }
     },
     "Anti-aliasing" : {
       "localizations" : {
@@ -278,6 +375,22 @@
           "stringUnit" : {
             "state" : "needs_review",
             "value" : "抗锯齿"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "反鋸齒"
+          }
+        }
+      }
+    },
+    "Any" : {
+      "localizations" : {
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "不限"
           }
         }
       }
@@ -288,6 +401,12 @@
           "stringUnit" : {
             "state" : "needs_review",
             "value" : "外观"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "外觀"
           }
         }
       }
@@ -309,6 +428,12 @@
             "state" : "needs_review",
             "value" : "为每个应用设置规则"
           }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "應用程式規則"
+          }
         }
       }
     },
@@ -318,6 +443,12 @@
           "stringUnit" : {
             "state" : "needs_review",
             "value" : "应用到所有壁纸"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "套用到所有桌布"
           }
         }
       }
@@ -329,6 +460,12 @@
             "state" : "needs_review",
             "value" : "绑定快捷键"
           }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "指定快速鍵"
+          }
         }
       }
     },
@@ -338,6 +475,12 @@
           "stringUnit" : {
             "state" : "needs_review",
             "value" : "音频"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "音訊"
           }
         }
       }
@@ -349,6 +492,22 @@
             "state" : "needs_review",
             "value" : "音频输出"
           }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "音訊輸出"
+          }
+        }
+      }
+    },
+    "Authenticating with Steam..." : {
+      "localizations" : {
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "正在向 Steam 驗證…"
+          }
         }
       }
     },
@@ -358,6 +517,12 @@
           "stringUnit" : {
             "state" : "needs_review",
             "value" : "自动"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "自動"
           }
         }
       }
@@ -369,6 +534,12 @@
             "state" : "needs_review",
             "value" : "自动"
           }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "自動"
+          }
         }
       }
     },
@@ -378,6 +549,22 @@
           "stringUnit" : {
             "state" : "needs_review",
             "value" : "自动启动"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "自動啟動"
+          }
+        }
+      }
+    },
+    "Automatically rotate wallpapers" : {
+      "localizations" : {
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "自動輪播桌布"
           }
         }
       }
@@ -389,6 +576,22 @@
             "state" : "needs_review",
             "value" : "基础设置"
           }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "基本設定"
+          }
+        }
+      }
+    },
+    "Batch Unsubscribe Confirmation" : {
+      "localizations" : {
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "批次取消訂閱確認"
+          }
         }
       }
     },
@@ -398,6 +601,12 @@
           "stringUnit" : {
             "state" : "needs_review",
             "value" : "低于正常"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "低於一般"
           }
         }
       }
@@ -409,6 +618,12 @@
             "state" : "needs_review",
             "value" : "所有内容的打开方式"
           }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "瀏覽方式"
+          }
         }
       }
     },
@@ -418,6 +633,12 @@
           "stringUnit" : {
             "state" : "needs_review",
             "value" : "浏览预设"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "瀏覽預設集"
           }
         }
       }
@@ -429,6 +650,22 @@
             "state" : "translated",
             "value" : "打开创意工坊"
           }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "瀏覽創意工坊"
+          }
+        }
+      }
+    },
+    "Browse..." : {
+      "localizations" : {
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "瀏覽…"
+          }
         }
       }
     },
@@ -438,6 +675,22 @@
           "stringUnit" : {
             "state" : "needs_review",
             "value" : "取消"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "取消"
+          }
+        }
+      }
+    },
+    "Category" : {
+      "localizations" : {
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "分類"
           }
         }
       }
@@ -459,6 +712,22 @@
             "state" : "needs_review",
             "value" : "简体中文"
           }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "簡體中文"
+          }
+        }
+      }
+    },
+    "Chinese Traditional" : {
+      "localizations" : {
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "繁體中文"
+          }
         }
       }
     },
@@ -472,6 +741,16 @@
         }
       }
     },
+    "Click a display to select it, then choose a wallpaper from the library." : {
+      "localizations" : {
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "點選一個螢幕來選取它，然後從資料庫中挑選桌布。"
+          }
+        }
+      }
+    },
     "Close Window" : {
       "localizations" : {
         "zh-Hans" : {
@@ -479,11 +758,24 @@
             "state" : "translated",
             "value" : "关闭窗口"
           }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "關閉視窗"
+          }
         }
       }
     },
     "Come out soon..." : {
-
+      "localizations" : {
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "敬請期待…"
+          }
+        }
+      }
     },
     "Comment" : {
       "localizations" : {
@@ -491,6 +783,12 @@
           "stringUnit" : {
             "state" : "needs_review",
             "value" : "评论"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "留言"
           }
         }
       }
@@ -505,12 +803,38 @@
         }
       }
     },
+    "Contributors" : {
+      "localizations" : {
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "貢獻者"
+          }
+        }
+      }
+    },
     "Copy" : {
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "复制"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "拷貝"
+          }
+        }
+      }
+    },
+    "Couldn't load more results." : {
+      "localizations" : {
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "無法載入更多結果。"
           }
         }
       }
@@ -522,6 +846,12 @@
             "state" : "translated",
             "value" : "目前以下设置并不会生效，因为它们是为场景类壁纸而设计的。目前还不支持场景壁纸"
           }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "目前以下設定是為場景類桌布設計的，\n可能無法如預期運作 "
+          }
         }
       }
     },
@@ -531,6 +861,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "剪切"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "剪下"
           }
         }
       }
@@ -542,6 +878,12 @@
             "state" : "needs_review",
             "value" : "黑色主题"
           }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "深色"
+          }
         }
       }
     },
@@ -551,6 +893,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "调试"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "偵錯"
           }
         }
       }
@@ -562,6 +910,22 @@
             "state" : "translated",
             "value" : "清空"
           }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "全部刪除"
+          }
+        }
+      }
+    },
+    "Delete All %lld Immediately" : {
+      "localizations" : {
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "立即永久刪除全部 %lld 個"
+          }
         }
       }
     },
@@ -572,11 +936,24 @@
             "state" : "translated",
             "value" : "强制删除（不可恢复）"
           }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "立即永久刪除"
+          }
         }
       }
     },
     "Description..." : {
-
+      "localizations" : {
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "描述…"
+          }
+        }
+      }
     },
     "Developer" : {
       "localizations" : {
@@ -584,6 +961,12 @@
           "stringUnit" : {
             "state" : "needs_review",
             "value" : "开发者"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "開發者"
           }
         }
       }
@@ -594,6 +977,12 @@
           "stringUnit" : {
             "state" : "needs_review",
             "value" : "禁用"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "已停用"
           }
         }
       }
@@ -615,6 +1004,22 @@
             "state" : "needs_review",
             "value" : "显示器休眠"
           }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "螢幕休眠時"
+          }
+        }
+      }
+    },
+    "Display Settings" : {
+      "localizations" : {
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "螢幕設定"
+          }
         }
       }
     },
@@ -624,6 +1029,12 @@
           "stringUnit" : {
             "state" : "needs_review",
             "value" : "显示器选择"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "螢幕"
           }
         }
       }
@@ -635,6 +1046,32 @@
             "state" : "translated",
             "value" : "打开这张壁纸时不再询问"
           }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "此桌布不再詢問"
+          }
+        }
+      }
+    },
+    "Download" : {
+      "localizations" : {
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "下載"
+          }
+        }
+      }
+    },
+    "Downloaded" : {
+      "localizations" : {
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "已下載"
+          }
         }
       }
     },
@@ -644,6 +1081,12 @@
           "stringUnit" : {
             "state" : "needs_review",
             "value" : "双显示器"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "雙螢幕"
           }
         }
       }
@@ -655,6 +1098,12 @@
             "state" : "needs_review",
             "value" : "编辑"
           }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "編輯"
+          }
         }
       }
     },
@@ -664,6 +1113,12 @@
           "stringUnit" : {
             "state" : "needs_review",
             "value" : "已编辑"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "已編輯"
           }
         }
       }
@@ -675,6 +1130,12 @@
             "state" : "needs_review",
             "value" : "启用"
           }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "已啟用"
+          }
         }
       }
     },
@@ -683,6 +1144,12 @@
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "needs_review",
+            "value" : "英文"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
             "value" : "英文"
           }
         }
@@ -695,6 +1162,22 @@
             "state" : "translated",
             "value" : "切换全屏"
           }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "進入全螢幕"
+          }
+        }
+      }
+    },
+    "Enter Steam Guard Code" : {
+      "localizations" : {
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "輸入 Steam 令牌驗證碼"
+          }
         }
       }
     },
@@ -704,6 +1187,22 @@
           "stringUnit" : {
             "state" : "needs_review",
             "value" : "仅错误"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "僅錯誤"
+          }
+        }
+      }
+    },
+    "Failed" : {
+      "localizations" : {
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "失敗"
           }
         }
       }
@@ -726,6 +1225,12 @@
             "state" : "translated",
             "value" : "文件"
           }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "檔案"
+          }
         }
       }
     },
@@ -747,6 +1252,22 @@
             "state" : "needs_review",
             "value" : "过滤结果"
           }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "篩選結果"
+          }
+        }
+      }
+    },
+    "Find wallpapers by name, tag, or browse trending content." : {
+      "localizations" : {
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "依名稱或標籤尋找桌布，或瀏覽熱門內容。"
+          }
         }
       }
     },
@@ -757,6 +1278,12 @@
             "state" : "needs_review",
             "value" : "跟随系统"
           }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "跟隨系統"
+          }
         }
       }
     },
@@ -766,6 +1293,12 @@
           "stringUnit" : {
             "state" : "needs_review",
             "value" : "帧率"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "影格率"
           }
         }
       }
@@ -788,6 +1321,32 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "通用"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "一般"
+          }
+        }
+      }
+    },
+    "Genre" : {
+      "localizations" : {
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "題材"
+          }
+        }
+      }
+    },
+    "Get a free key at" : {
+      "localizations" : {
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "在此免費取得金鑰"
           }
         }
       }
@@ -819,6 +1378,12 @@
             "state" : "translated",
             "value" : "帮助"
           }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "輔助說明"
+          }
         }
       }
     },
@@ -828,6 +1393,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "隐藏"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "隱藏"
           }
         }
       }
@@ -839,6 +1410,12 @@
             "state" : "translated",
             "value" : "隐藏其他"
           }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "隱藏其他"
+          }
         }
       }
     },
@@ -847,6 +1424,12 @@
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "needs_review",
+            "value" : "高"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
             "value" : "高"
           }
         }
@@ -859,6 +1442,12 @@
             "state" : "translated",
             "value" : "高 FPS 可能会降低电脑的运行速度！"
           }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "過高的影格率可能會拖慢你的電腦！"
+          }
         }
       }
     },
@@ -868,6 +1457,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "高 FPS 可能会降低电脑的运行速度！这可不是开玩笑，您设置的 FPS 太高了🔥."
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "過高的影格率可能會拖慢你的電腦！我們是認真的，這實在太高了 🔥。"
           }
         }
       }
@@ -879,6 +1474,12 @@
             "state" : "needs_review",
             "value" : "高性能"
           }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "高效能"
+          }
         }
       }
     },
@@ -888,6 +1489,12 @@
           "stringUnit" : {
             "state" : "needs_review",
             "value" : "高品质"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "高品質"
           }
         }
       }
@@ -899,6 +1506,12 @@
             "state" : "needs_review",
             "value" : "图标尺寸"
           }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "圖示大小"
+          }
         }
       }
     },
@@ -908,6 +1521,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "导入"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "匯入"
           }
         }
       }
@@ -919,6 +1538,22 @@
             "state" : "translated",
             "value" : "从 Steam 创意工坊中导入壁纸"
           }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "從 Steam 創意工坊匯入桌布"
+          }
+        }
+      }
+    },
+    "In Order" : {
+      "localizations" : {
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "依序播放"
+          }
         }
       }
     },
@@ -929,11 +1564,24 @@
             "state" : "needs_review",
             "value" : "已安装"
           }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "已安裝"
+          }
         }
       }
     },
     "Internal" : {
-
+      "localizations" : {
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "內建"
+          }
+        }
+      }
     },
     "Keep Running" : {
       "localizations" : {
@@ -941,6 +1589,12 @@
           "stringUnit" : {
             "state" : "needs_review",
             "value" : "继续运行"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "繼續執行"
           }
         }
       }
@@ -952,6 +1606,12 @@
             "state" : "needs_review",
             "value" : "语言"
           }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "語言"
+          }
         }
       }
     },
@@ -962,6 +1622,12 @@
             "state" : "needs_review",
             "value" : "当笔记本连接电源时"
           }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "筆記型電腦使用電池時"
+          }
         }
       }
     },
@@ -971,6 +1637,12 @@
           "stringUnit" : {
             "state" : "needs_review",
             "value" : "大图标"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "大圖示"
           }
         }
       }
@@ -993,6 +1665,12 @@
             "state" : "needs_review",
             "value" : "白色主题"
           }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "淺色"
+          }
         }
       }
     },
@@ -1002,6 +1680,12 @@
           "stringUnit" : {
             "state" : "needs_review",
             "value" : "加载"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "載入"
           }
         }
       }
@@ -1016,12 +1700,48 @@
         }
       }
     },
+    "Log In" : {
+      "localizations" : {
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "登入"
+          }
+        }
+      }
+    },
+    "Log in with your Steam account to browse and download wallpapers.\nYou must own Wallpaper Engine on Steam." : {
+      "localizations" : {
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "使用你的 Steam 帳號登入以瀏覽和下載桌布。\n你必須在 Steam 上擁有 Wallpaper Engine。"
+          }
+        }
+      }
+    },
     "Log Level" : {
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "needs_review",
             "value" : "日志记录等级"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "記錄層級"
+          }
+        }
+      }
+    },
+    "Login to download" : {
+      "localizations" : {
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "登入後下載"
           }
         }
       }
@@ -1031,6 +1751,12 @@
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "needs_review",
+            "value" : "低"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
             "value" : "低"
           }
         }
@@ -1063,6 +1789,12 @@
             "state" : "needs_review",
             "value" : "管理屏蔽列表"
           }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "管理封鎖清單"
+          }
         }
       }
     },
@@ -1071,6 +1803,12 @@
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "needs_review",
+            "value" : "中"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
             "value" : "中"
           }
         }
@@ -1082,6 +1820,22 @@
           "stringUnit" : {
             "state" : "needs_review",
             "value" : "中图标"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "中圖示"
+          }
+        }
+      }
+    },
+    "Miscellaneous" : {
+      "localizations" : {
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "其他"
           }
         }
       }
@@ -1096,12 +1850,28 @@
         }
       }
     },
+    "Move All %lld to Trash" : {
+      "localizations" : {
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "將全部 %lld 個移到垃圾桶"
+          }
+        }
+      }
+    },
     "Move to Trash" : {
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "移到废纸篓"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "移到垃圾桶"
           }
         }
       }
@@ -1143,6 +1913,22 @@
             "state" : "needs_review",
             "value" : "静音"
           }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "靜音"
+          }
+        }
+      }
+    },
+    "Mute Audio" : {
+      "localizations" : {
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "靜音"
+          }
         }
       }
     },
@@ -1164,6 +1950,12 @@
             "state" : "translated",
             "value" : "在下次更新之前不再显示"
           }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "在下次更新前不再顯示"
+          }
         }
       }
     },
@@ -1173,6 +1965,32 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "新建标签"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "新增標籤"
+          }
+        }
+      }
+    },
+    "Next Wallpaper" : {
+      "localizations" : {
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "下一張桌布"
+          }
+        }
+      }
+    },
+    "No recent wallpapers" : {
+      "localizations" : {
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "沒有最近使用的桌布"
           }
         }
       }
@@ -1184,6 +2002,12 @@
             "state" : "translated",
             "value" : "无标签"
           }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "無標籤"
+          }
         }
       }
     },
@@ -1193,6 +2017,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "没有找到任何壁纸。 请尝试通过侧栏的选择器来扩大或重置搜索范围，或者尝试换一个词来搜索。"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "找不到符合搜尋條件的桌布。\n請在側邊欄放寬或重設篩選條件，或換個關鍵字再試一次。"
           }
         }
       }
@@ -1204,6 +2034,12 @@
             "state" : "translated",
             "value" : "反选"
           }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "全不選"
+          }
         }
       }
     },
@@ -1214,6 +2050,12 @@
             "state" : "needs_review",
             "value" : "正常"
           }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "一般"
+          }
         }
       }
     },
@@ -1222,6 +2064,12 @@
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "needs_review",
+            "value" : "好"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
             "value" : "好"
           }
         }
@@ -1245,6 +2093,12 @@
             "state" : "needs_review",
             "value" : "在访达中打开工作目录"
           }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "在 Finder 中打開全部"
+          }
         }
       }
     },
@@ -1254,6 +2108,12 @@
           "stringUnit" : {
             "state" : "needs_review",
             "value" : "在访达中打开当前壁纸"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "在 Finder 中打開"
           }
         }
       }
@@ -1265,6 +2125,12 @@
             "state" : "needs_review",
             "value" : "在创意工坊中打开"
           }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "在創意工坊中打開"
+          }
         }
       }
     },
@@ -1274,6 +2140,12 @@
           "stringUnit" : {
             "state" : "needs_review",
             "value" : "打开壁纸文件"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "打開桌布"
           }
         }
       }
@@ -1295,6 +2167,12 @@
             "state" : "translated",
             "value" : "Open Wallpaper Engine没有能力控制此壁纸所有可能存在的恶意行为，在继续打开该壁纸之前你必须确认你的壁纸是从可信任的来源下载的"
           }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Open Wallpaper Engine 無法控制這個檔案的行為，繼續之前你必須確認它來自可信任的來源。"
+          }
         }
       }
     },
@@ -1304,6 +2182,32 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "打开未知 %@"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "正在打開未知的 %@"
+          }
+        }
+      }
+    },
+    "Or locate an existing steamcmd binary:" : {
+      "localizations" : {
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "或指定現有的 steamcmd 執行檔："
+          }
+        }
+      }
+    },
+    "Order" : {
+      "localizations" : {
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "順序"
           }
         }
       }
@@ -1315,6 +2219,12 @@
             "state" : "needs_review",
             "value" : "当焦点转移到其他应用时"
           }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "其他應用程式取得焦點時："
+          }
         }
       }
     },
@@ -1324,6 +2234,12 @@
           "stringUnit" : {
             "state" : "needs_review",
             "value" : "当其他应用程序进入全屏时"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "其他應用程式全螢幕時："
           }
         }
       }
@@ -1335,6 +2251,22 @@
             "state" : "needs_review",
             "value" : "当其他应用程序播放音频时"
           }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "其他應用程式播放音訊時："
+          }
+        }
+      }
+    },
+    "Password" : {
+      "localizations" : {
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "密碼"
+          }
         }
       }
     },
@@ -1344,6 +2276,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "粘贴"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "貼上"
           }
         }
       }
@@ -1355,6 +2293,12 @@
             "state" : "needs_review",
             "value" : "暂停"
           }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "暫停"
+          }
         }
       }
     },
@@ -1364,6 +2308,12 @@
           "stringUnit" : {
             "state" : "needs_review",
             "value" : "当显存耗尽时暂停"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "顯示記憶體耗盡時暫停"
           }
         }
       }
@@ -1376,6 +2326,12 @@
             "state" : "translated",
             "value" : "性能"
           }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "效能"
+          }
         }
       }
     },
@@ -1386,6 +2342,12 @@
             "state" : "needs_review",
             "value" : "回放"
           }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "播放"
+          }
         }
       }
     },
@@ -1395,6 +2357,12 @@
           "stringUnit" : {
             "state" : "needs_review",
             "value" : "回放速率"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "播放速率"
           }
         }
       }
@@ -1416,6 +2384,12 @@
             "state" : "translated",
             "value" : "请警惕恶意行为"
           }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "請留意惡意軟體。"
+          }
         }
       }
     },
@@ -1426,6 +2400,12 @@
             "state" : "translated",
             "value" : "请选择有效的壁纸"
           }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "請選擇有效的桌布"
+          }
         }
       }
     },
@@ -1435,6 +2415,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "请等待%lld秒"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "請等待 %lld 秒。"
           }
         }
       }
@@ -1447,6 +2433,12 @@
             "state" : "translated",
             "value" : "插件"
           }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "外掛"
+          }
         }
       }
     },
@@ -1456,6 +2448,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "后处理"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "後製處理"
           }
         }
       }
@@ -1467,6 +2465,12 @@
             "state" : "translated",
             "value" : "纵向显示器/手机"
           }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "直向螢幕／手機"
+          }
         }
       }
     },
@@ -1476,6 +2480,12 @@
           "stringUnit" : {
             "state" : "needs_review",
             "value" : "休眠/加载中…"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "省電模式，休眠中…"
           }
         }
       }
@@ -1487,6 +2497,12 @@
             "state" : "translated",
             "value" : "处理中"
           }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "繼續"
+          }
         }
       }
     },
@@ -1497,6 +2513,12 @@
             "state" : "needs_review",
             "value" : "进程优先级"
           }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "行程優先權"
+          }
         }
       }
     },
@@ -1506,6 +2528,12 @@
           "stringUnit" : {
             "state" : "needs_review",
             "value" : "属性"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "屬性"
           }
         }
       }
@@ -1528,6 +2556,12 @@
             "state" : "needs_review",
             "value" : "质量"
           }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "品質"
+          }
         }
       }
     },
@@ -1537,6 +2571,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "退出"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "結束"
           }
         }
       }
@@ -1552,6 +2592,16 @@
         }
       }
     },
+    "Re-detect" : {
+      "localizations" : {
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "重新偵測"
+          }
+        }
+      }
+    },
     "Recent Wallpapers" : {
       "localizations" : {
         "zh-Hans" : {
@@ -1559,12 +2609,24 @@
             "state" : "translated",
             "value" : "最近使用的壁纸"
           }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "最近使用的桌布"
+          }
         }
       }
     },
     "Redo" : {
       "localizations" : {
         "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "重做"
+          }
+        },
+        "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "重做"
@@ -1579,12 +2641,24 @@
             "state" : "needs_review",
             "value" : "反射"
           }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "反射"
+          }
         }
       }
     },
     "Reflections" : {
       "localizations" : {
         "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "反射"
+          }
+        },
+        "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "反射"
@@ -1599,6 +2673,32 @@
             "state" : "needs_review",
             "value" : "相关壁纸"
           }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "相關桌布"
+          }
+        }
+      }
+    },
+    "Relaunch" : {
+      "localizations" : {
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "重新啟動"
+          }
+        }
+      }
+    },
+    "Relaunch to apply the new language." : {
+      "localizations" : {
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "重新啟動後套用新語言。"
+          }
         }
       }
     },
@@ -1608,6 +2708,22 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "更改音频输出设备时重新加载"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "變更輸出裝置時重新載入"
+          }
+        }
+      }
+    },
+    "Remove" : {
+      "localizations" : {
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "移除"
           }
         }
       }
@@ -1629,6 +2745,12 @@
             "state" : "needs_review",
             "value" : "反馈"
           }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "檢舉"
+          }
         }
       }
     },
@@ -1638,6 +2760,12 @@
           "stringUnit" : {
             "state" : "needs_review",
             "value" : "举报&拦截"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "檢舉並封鎖"
           }
         }
       }
@@ -1649,6 +2777,12 @@
             "state" : "needs_review",
             "value" : "重置"
           }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "重設"
+          }
         }
       }
     },
@@ -1658,6 +2792,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "重置所有已信任的壁纸"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "重設所有已信任的桌布"
           }
         }
       }
@@ -1669,6 +2809,12 @@
             "state" : "needs_review",
             "value" : "初始化所有配置"
           }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "重設所有設定"
+          }
         }
       }
     },
@@ -1678,6 +2824,12 @@
           "stringUnit" : {
             "state" : "needs_review",
             "value" : "重置筛选条件"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "重設篩選條件"
           }
         }
       }
@@ -1689,6 +2841,12 @@
             "state" : "translated",
             "value" : "重置首次启动标记"
           }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "重設首次啟動標記"
+          }
         }
       }
     },
@@ -1699,6 +2857,12 @@
             "state" : "needs_review",
             "value" : "分辨率"
           }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "解析度"
+          }
         }
       }
     },
@@ -1708,6 +2872,22 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "崩溃后重启"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "當機後自動重新啟動"
+          }
+        }
+      }
+    },
+    "Rotates through every installed Scene, Video, and image wallpaper. Web and application wallpapers are skipped." : {
+      "localizations" : {
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "會輪播所有已安裝的場景、影片與圖片桌布。網頁與應用程式桌布會略過。"
           }
         }
       }
@@ -1730,6 +2910,22 @@
             "state" : "needs_review",
             "value" : "保存"
           }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "儲存"
+          }
+        }
+      }
+    },
+    "Save & Search" : {
+      "localizations" : {
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "儲存並搜尋"
+          }
         }
       }
     },
@@ -1750,6 +2946,12 @@
             "state" : "needs_review",
             "value" : "风格颜色"
           }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "主題色彩"
+          }
         }
       }
     },
@@ -1759,6 +2961,42 @@
           "stringUnit" : {
             "state" : "needs_review",
             "value" : "搜索"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "搜尋"
+          }
+        }
+      }
+    },
+    "Search the Steam Workshop" : {
+      "localizations" : {
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "搜尋 Steam 創意工坊"
+          }
+        }
+      }
+    },
+    "Search wallpapers..." : {
+      "localizations" : {
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "搜尋桌布…"
+          }
+        }
+      }
+    },
+    "Searching Workshop..." : {
+      "localizations" : {
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "正在搜尋創意工坊…"
           }
         }
       }
@@ -1770,6 +3008,12 @@
             "state" : "translated",
             "value" : "全选"
           }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "全選"
+          }
         }
       }
     },
@@ -1779,6 +3023,12 @@
           "stringUnit" : {
             "state" : "needs_review",
             "value" : "设置"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "設定"
           }
         }
       }
@@ -1790,6 +3040,12 @@
             "state" : "translated",
             "value" : "设置"
           }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "設定…"
+          }
         }
       }
     },
@@ -1799,6 +3055,12 @@
           "stringUnit" : {
             "state" : "needs_review",
             "value" : "共享JSON"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "分享 JSON"
           }
         }
       }
@@ -1810,6 +3072,12 @@
             "state" : "translated",
             "value" : "显示筛选结果"
           }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "顯示篩選結果"
+          }
         }
       }
     },
@@ -1819,6 +3087,12 @@
           "stringUnit" : {
             "state" : "needs_review",
             "value" : "仅展示:"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "僅顯示："
           }
         }
       }
@@ -1830,6 +3104,22 @@
             "state" : "translated",
             "value" : "显示主窗口"
           }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "顯示 Open Wallpaper Engine"
+          }
+        }
+      }
+    },
+    "Shuffle" : {
+      "localizations" : {
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "隨機播放"
+          }
         }
       }
     },
@@ -1839,6 +3129,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "和 Steam 上的 Wallpaper Engine 具有相似的 UI 布局"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "與 Steam 上的 Wallpaper Engine 相似的介面配置"
           }
         }
       }
@@ -1850,11 +3146,34 @@
             "state" : "needs_review",
             "value" : "小标题"
           }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "小圖示"
+          }
+        }
+      }
+    },
+    "Sort" : {
+      "localizations" : {
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "排序"
+          }
         }
       }
     },
     "Sort By" : {
-
+      "localizations" : {
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "排序方式"
+          }
+        }
+      }
     },
     "Source" : {
       "localizations" : {
@@ -1862,6 +3181,12 @@
           "stringUnit" : {
             "state" : "needs_review",
             "value" : "来源"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "來源"
           }
         }
       }
@@ -1883,6 +3208,72 @@
             "state" : "translated",
             "value" : "跟随 macOS 启动"
           }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "隨 macOS 啟動"
+          }
+        }
+      }
+    },
+    "Steam Guard Code" : {
+      "localizations" : {
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Steam 令牌驗證碼"
+          }
+        }
+      }
+    },
+    "Steam Login" : {
+      "localizations" : {
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Steam 登入"
+          }
+        }
+      }
+    },
+    "Steam Username" : {
+      "localizations" : {
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Steam 使用者名稱"
+          }
+        }
+      }
+    },
+    "Steam Web API Key" : {
+      "localizations" : {
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Steam Web API 金鑰"
+          }
+        }
+      }
+    },
+    "Steam Workshop requires steamcmd to download wallpapers.\nInstall it with Homebrew:" : {
+      "localizations" : {
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Steam 創意工坊需要 steamcmd 才能下載桌布。\n請用 Homebrew 安裝："
+          }
+        }
+      }
+    },
+    "steamcmd Not Found" : {
+      "localizations" : {
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "找不到 steamcmd"
+          }
         }
       }
     },
@@ -1892,6 +3283,12 @@
           "stringUnit" : {
             "state" : "needs_review",
             "value" : "停止（释放内存）"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "停止（釋放記憶體）"
           }
         }
       }
@@ -1914,6 +3311,12 @@
             "state" : "needs_review",
             "value" : "高性能"
           }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "超高效能"
+          }
         }
       }
     },
@@ -1923,6 +3326,22 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "支持&帮助"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "支援與常見問題"
+          }
+        }
+      }
+    },
+    "Switch every %lld min" : {
+      "localizations" : {
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "每 %lld 分鐘切換"
           }
         }
       }
@@ -1934,6 +3353,12 @@
             "state" : "needs_review",
             "value" : "标签"
           }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "標籤"
+          }
         }
       }
     },
@@ -1943,6 +3368,12 @@
           "stringUnit" : {
             "state" : "needs_review",
             "value" : "纹理分辨率"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "材質解析度"
           }
         }
       }
@@ -1954,17 +3385,44 @@
             "state" : "needs_review",
             "value" : "主题"
           }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "佈景主題"
+          }
         }
       }
     },
     "Third-party" : {
-
+      "localizations" : {
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "第三方"
+          }
+        }
+      }
     },
     "This plugin enables animation of GIF thumbnail images in wallpaper explorer" : {
-
+      "localizations" : {
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "此外掛可讓桌布瀏覽器中的 GIF 縮圖播放動畫"
+          }
+        }
+      }
     },
     "Those all settings above don't have to be saved for taking effect." : {
-
+      "localizations" : {
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "以上所有設定都不需要儲存即可生效。"
+          }
+        }
+      }
     },
     "Titles per page" : {
       "localizations" : {
@@ -1972,6 +3430,12 @@
           "stringUnit" : {
             "state" : "needs_review",
             "value" : "每页壁纸数量"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "每頁顯示數量"
           }
         }
       }
@@ -1983,6 +3447,12 @@
             "state" : "translated",
             "value" : "开/yin can桌面壁纸窗口"
           }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "切換桌面桌布視窗（偵錯）"
+          }
         }
       }
     },
@@ -1992,6 +3462,22 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "三显示器"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "三螢幕"
+          }
+        }
+      }
+    },
+    "Try Again" : {
+      "localizations" : {
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "重試"
           }
         }
       }
@@ -2003,6 +3489,12 @@
             "state" : "needs_review",
             "value" : "类型"
           }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "類型"
+          }
         }
       }
     },
@@ -2012,6 +3504,12 @@
           "stringUnit" : {
             "state" : "needs_review",
             "value" : "超级"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "極致"
           }
         }
       }
@@ -2023,6 +3521,12 @@
             "state" : "translated",
             "value" : "超高模式可将 HDR 高光添加到支持的壁纸中，建议仅用于功能强大的高端台式机显卡。"
           }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "極致模式會為支援的桌布加上 HDR 光暈，建議僅在高階桌上型顯示卡上使用。"
+          }
         }
       }
     },
@@ -2032,6 +3536,12 @@
           "stringUnit" : {
             "state" : "needs_review",
             "value" : "带鱼屏"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "超寬螢幕"
           }
         }
       }
@@ -2043,6 +3553,12 @@
             "state" : "translated",
             "value" : "撤销"
           }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "還原"
+          }
         }
       }
     },
@@ -2052,6 +3568,12 @@
           "stringUnit" : {
             "state" : "needs_review",
             "value" : "佚名"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "未知作者"
           }
         }
       }
@@ -2063,6 +3585,12 @@
             "state" : "translated",
             "value" : "取消静音"
           }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "取消靜音"
+          }
         }
       }
     },
@@ -2072,6 +3600,22 @@
           "stringUnit" : {
             "state" : "needs_review",
             "value" : "取消订阅"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "取消訂閱"
+          }
+        }
+      }
+    },
+    "Unsubscribe %lld wallpapers: %@%@" : {
+      "localizations" : {
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "取消訂閱 %lld 張桌布：%@%@"
           }
         }
       }
@@ -2083,6 +3627,32 @@
             "state" : "translated",
             "value" : "取消订阅确认"
           }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "取消訂閱確認"
+          }
+        }
+      }
+    },
+    "Unsubscribe Selected (%lld)" : {
+      "localizations" : {
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "取消訂閱所選（%lld）"
+          }
+        }
+      }
+    },
+    "Use Cached Session" : {
+      "localizations" : {
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "使用已快取的工作階段"
+          }
         }
       }
     },
@@ -2092,6 +3662,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "详细日志"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "詳細"
           }
         }
       }
@@ -2103,6 +3679,12 @@
             "state" : "translated",
             "value" : "版本号： %@"
           }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "版本：%@"
+          }
         }
       }
     },
@@ -2112,6 +3694,12 @@
           "stringUnit" : {
             "state" : "needs_review",
             "value" : "视频"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "影片"
           }
         }
       }
@@ -2123,6 +3711,12 @@
             "state" : "needs_review",
             "value" : "视频播放框架"
           }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "影片框架"
+          }
         }
       }
     },
@@ -2133,6 +3727,12 @@
             "state" : "needs_review",
             "value" : "预览"
           }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "顯示方式"
+          }
         }
       }
     },
@@ -2142,6 +3742,22 @@
           "stringUnit" : {
             "state" : "needs_review",
             "value" : "音量"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "音量"
+          }
+        }
+      }
+    },
+    "Wallpaper display is disabled on this screen." : {
+      "localizations" : {
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "這個螢幕已停用桌布顯示。"
           }
         }
       }
@@ -2173,6 +3789,12 @@
             "state" : "translated",
             "value" : "壁纸浏览器"
           }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "桌布瀏覽器"
+          }
         }
       }
     },
@@ -2182,6 +3804,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "单个壁纸"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "從資料夾加入單張桌布"
           }
         }
       }
@@ -2196,12 +3824,28 @@
         }
       }
     },
+    "Wallpaper Rotation" : {
+      "localizations" : {
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "桌布輪播"
+          }
+        }
+      }
+    },
     "Wallpaper Title" : {
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "needs_review",
             "value" : "壁纸标题"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "桌布標題"
           }
         }
       }
@@ -2213,6 +3857,12 @@
             "state" : "translated",
             "value" : "多个壁纸"
           }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "從資料夾加入多張桌布"
+          }
         }
       }
     },
@@ -2222,6 +3872,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "通过轻量、现代化的 SwiftUI 框架，带来更加顺滑的动画体验"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "以輕量、現代的 SwiftUI 框架為基礎，帶來更流暢的動畫體驗。"
           }
         }
       }
@@ -2233,6 +3889,12 @@
             "state" : "translated",
             "value" : "我们关心你的电池寿命"
           }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "我們在乎你的筆電續航力"
+          }
         }
       }
     },
@@ -2242,6 +3904,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Open Wallpaper Engine 里的新东西"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Open Wallpaper Engine 的新功能"
           }
         }
       }
@@ -2253,6 +3921,12 @@
             "state" : "translated",
             "value" : "当拔下充电器时，我们尽可能的减少壁纸的能源消耗，但并不停止播放。"
           }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "拔掉電源轉接器時，我們會盡可能降低耗電，而不是直接停止播放。"
+          }
         }
       }
     },
@@ -2262,6 +3936,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "宽屏幕"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "寬螢幕"
           }
         }
       }
@@ -2273,6 +3953,12 @@
             "state" : "translated",
             "value" : "窗口"
           }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "視窗"
+          }
         }
       }
     },
@@ -2282,6 +3968,12 @@
           "stringUnit" : {
             "state" : "needs_review",
             "value" : "正在开发哦~"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "努力開發中"
           }
         }
       }
@@ -2293,6 +3985,12 @@
             "state" : "needs_review",
             "value" : "创意工坊"
           }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "創意工坊"
+          }
         }
       }
     },
@@ -2302,6 +4000,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "你正在打开一个外部%@壁纸"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "你即將以外部 %@ 作為桌布打開："
           }
         }
       }
@@ -2313,6 +4017,12 @@
             "state" : "translated",
             "value" : "你可以轻松的从 Wallpaper Engine 的创意工坊中导入视频类型的壁纸，同时设定一些属性，例如播放速率，音量等。"
           }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "你可以輕鬆地從 Wallpaper Engine 的創意工坊匯入影片類型的桌布，並調整播放速率、音量等屬性。"
+          }
         }
       }
     },
@@ -2322,6 +4032,22 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "你在使用时也许会感到非常熟悉，因为它和它的原型的 UI 布局几乎完全一致。"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "使用這個動態桌布工具時你可能會感到熟悉，因為它的介面配置與原版幾乎一致。"
+          }
+        }
+      }
+    },
+    "You'll also need a Steam Web API key to browse the Workshop." : {
+      "localizations" : {
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "瀏覽創意工坊還需要一組 Steam Web API 金鑰。"
           }
         }
       }
@@ -2333,11 +4059,24 @@
             "state" : "translated",
             "value" : "用户预设"
           }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "你的預設集"
+          }
         }
       }
     },
     "􀄪 You can toggle this to have a preview" : {
-
+      "localizations" : {
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "􀄪 你可以切換這個來預覽"
+          }
+        }
+      }
     }
   },
   "version" : "1.0"
