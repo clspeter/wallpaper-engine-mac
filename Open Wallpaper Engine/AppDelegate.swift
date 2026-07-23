@@ -267,34 +267,56 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSWindowDelegate {
         UserDefaults.standard.set(wallpaper, forKey: "OSWallpaper")
     }
     
+    /// The lock screen (and Mission Control) show the *system* desktop picture, not our
+    /// desktop-level window, so it must be kept in sync with a static snapshot of the
+    /// current wallpaper — otherwise the lock screen shows whatever was written last.
     func setPlacehoderWallpaper(with wallpaper: WEWallpaper) {
+        // No wallpaper selected: restore the user's original macOS wallpaper. The
+        // placeholder is type "video", so without this guard its "Wallpaper not found"
+        // frame gets snapshotted onto the lock screen and sticks there.
+        guard wallpaper.project != .invalid else {
+            if let original = UserDefaults.standard.url(forKey: "OSWallpaper") {
+                for screen in NSScreen.screens {
+                    try? NSWorkspace.shared.setDesktopImageURL(original, for: screen)
+                }
+            }
+            return
+        }
         switch wallpaper.project.type {
         case "video":
             let asset = AVAsset(url: wallpaper.wallpaperDirectory.appending(component: wallpaper.project.file))
             let imageGenerator = AVAssetImageGenerator(asset: asset)
             imageGenerator.appliesPreferredTrackTransform = true
-            
+
             let time = CMTimeMake(value: 1, timescale: 1) // 第一帧的时间
-            imageGenerator.generateCGImagesAsynchronously(forTimes: [NSValue(time: time)]) { _, cgImage, _, _, error in
+            imageGenerator.generateCGImagesAsynchronously(forTimes: [NSValue(time: time)]) { [weak self] _, cgImage, _, _, error in
                 if let error = error {
                     print(error)
                 } else if let cgImage = cgImage {
-                    let nsImage = NSImage(cgImage: cgImage, size: .zero)
-                    if let data = nsImage.tiffRepresentation {
-                        do {
-                            let url = FileManager.default.urls(for: .cachesDirectory, in: .userDomainMask)[0].appending(path: "staticWP_\(wallpaper.wallpaperDirectory.hashValue).tiff")
-                            try data.write(to: url, options: .atomic)
-                            for screen in NSScreen.screens {
-                                try NSWorkspace.shared.setDesktopImageURL(url, for: screen)
-                            }
-                        } catch {
-                            print(error)
-                        }
-                    }
+                    self?.setStaticDesktopImage(NSImage(cgImage: cgImage, size: .zero),
+                                                cacheKey: wallpaper.wallpaperDirectory.hashValue)
                 }
             }
         default:
-            return
+            // Scenes and images have no cheap "first frame" — use the project's preview
+            // image (NSImage takes the first frame of an animated gif).
+            guard !wallpaper.project.preview.isEmpty,
+                  let image = NSImage(contentsOf: wallpaper.wallpaperDirectory.appending(component: wallpaper.project.preview))
+            else { return }
+            setStaticDesktopImage(image, cacheKey: wallpaper.wallpaperDirectory.hashValue)
+        }
+    }
+
+    private func setStaticDesktopImage(_ image: NSImage, cacheKey: Int) {
+        guard let data = image.tiffRepresentation else { return }
+        do {
+            let url = FileManager.default.urls(for: .cachesDirectory, in: .userDomainMask)[0].appending(path: "staticWP_\(cacheKey).tiff")
+            try data.write(to: url, options: .atomic)
+            for screen in NSScreen.screens {
+                try NSWorkspace.shared.setDesktopImageURL(url, for: screen)
+            }
+        } catch {
+            print(error)
         }
     }
 }
